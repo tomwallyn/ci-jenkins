@@ -23,6 +23,7 @@ dependencies {
 	implementation 'org.jetbrains.kotlin:kotlin-reflect'
 	implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
 	implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-reactor'
+	implementation 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.4.0.2513'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
 }
@@ -36,4 +37,17 @@ tasks.withType(KotlinCompile) {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+sonarqube {
+	def exclusions = [
+			"**/src/test/**",
+			"**/src/main/kotlin/**/TpCiApplication.kt"
+	]
+	properties {
+		property "sonar.projectKey", "tpci-backend"
+		property "sonar.coverage.exclusions", exclusions
+		property 'sonar.dependencyCheck.jsonReportPath', 'build/reports/dependency-check-report.json'
+		property 'sonar.dependencyCheck.htmlReportPath', 'build/reports/dependency-check-report.html'
+	}
 }

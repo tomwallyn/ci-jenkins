@@ -20,6 +20,16 @@ pipeline {
             }
         }
 
+        stage('SonarQube') {
+            steps {
+                script {
+                    withSonarQubeEnv('SonarQube') {
+                        sh './gradlew sonarqube'
+                    }
+                }
+            }
+        }
+
         stage('Package') {
             steps {
                 sh './gradlew jar'
