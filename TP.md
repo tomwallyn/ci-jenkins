@@ -1,4 +1,7 @@
 # TP-CI
+
+Nous avons choisi d'initialiser un projet d'API sous Kotlin Spring simple pour partire d'une base vierge.
+
 Voici les étapes à suivre pour lancer notre CI jenkins:
 
 Lancez les services : Ouvrez une fenêtre de terminal, accédez au répertoire où se trouve le fichier docker-compose.yml, puis exécutez la commande suivante pour lancer les services :
@@ -19,4 +22,6 @@ Accédez à l'interface web de SonarQube : Ouvrez un navigateur web et accédez 
 
 C'est tout ! Si tout est configuré correctement, le pipeline devrait s'exécuter avec succès et publier le package JAR sur le serveur Nexus. Vous pouvez également utiliser SonarQube pour analyser la qualité du code source et obtenir des informations sur les problèmes potentiels.
 
+# Membres du groupe
 
+Yoann Collot - Tom Wallyn
